@@ -1,0 +1,66 @@
+﻿.MenuRight{width:100%;}
+.MenuRight .title{background:url('img/icon.png') #8dc038  no-repeat left 5px center;padding:0 20px;margin-top:-25px;line-height:50px;height:50px;padding-left: 36px;width:100%;color:#fff;font-weight:bold;font-family: 'Roboto Condensed';font-size:16px;text-transform:uppercase;} 
+.MenuRight>ul {padding-top:15px; width:100%; border-left:1px dashed #e6e6e6;border-right:1px dashed #e6e6e6;}
+.MenuRight > ul>li{border-bottom:1px dashed #e6e6e6; list-style:none !important;-webkit-padding-start: 0 !important; -moz-padding-start: 0 !important;-os-padding-start: 0!important;}
+.MenuRight > ul li{padding:0 20px !important;  line-height:42px;width:100%;}
+.MenuRight  ul li a{color:#404040;font-family: 'Roboto Condensed'; font-size:14px; text-transform:uppercase;}
+.MenuRight  ul li a:hover{color:#8DC038; }
+
+.MenuRight ul li.child.down{background:url('img/down.png') no-repeat right 5px top 12px;}
+.MenuRight ul li.child.up{background:url('img/up.png') no-repeat right 5px  top 12px;}
+.MenuRight ul li.child.down a{color:#404040;}
+.MenuRight ul li.child.up>a{color:#8DC038;font-weight:bold;}
+.MenuRight ul li ul li{background:url('../../assets/Menu/img/liChild.png') no-repeat left 0  top 16px; }
+.MenuRight ul li ul li a{padding:0 0;}
+.MenuRight h2 {
+        margin: 0;
+        padding: 0;
+        font-size: 16px;
+        line-height: 50px;
+        height: 50px;
+        color: #fff;
+        font-weight: bold;
+        font-family: 'Roboto Condensed';
+        text-transform: uppercase;
+    }
+/*Menu duoi trang san pham va chi  tiet san pham*/
+.MenuFooterSP .item .title{display:none; position:absolute;top:0;right: 40px;bottom:0;left: 40px;margin:auto auto;height: 49px;text-align: center;background:url('../../assets/Menu/img/bgLogo.png') repeat;}
+.MenuFooterSP .item .title span{text-transform:uppercase; color:#fff; font-size:16px;}
+.MenuFooterSP .item .title:hover span{color:#fff;}
+.MenuFooterSP .item:hover .title {
+        display: block;
+        -webkit-transition: all 1s ease-in-out;
+        -moz-transition: all 1s ease-in-out;
+        -o-transition: all 1s ease-in-out;
+        transition: all 1s ease-in-out;
+}
+@media screen and (min-width:768px){
+    .MenuFooterSP .cotTrai{padding-right:3px;}
+    .MenuFooterSP .cotPhai{padding-left:3px;}
+}
+@media screen and (max-width:767px){
+    .MenuFooterSP .item .title{display:block; background:none;} 
+}
+
+/*Menu nhom san pham*/
+.Tabs{}
+.Tabs ul{background:#f1f1f1; width:100%;border-bottom: 1px solid #8DC038;}
+.Tabs ul li{list-style:none; display:inline-block;  font-size:14px;}
+.Tabs ul li:hover{background:#8dc038;}
+.Tabs ul li a{display:inline-block; width:100%; height:100%; color:#404040;padding:13px 20px; cursor:pointer; font-family: 'Roboto Condensed'; font-size:15px;}
+.Tabs ul li.active{background:#8dc038;}
+.Tabs ul li.active a{color:#fff !important; text-transform:uppercase;}
+.Tabs ul li.parent {text-transform:uppercase;  font-size:14px; padding-left:23px;
+         background:url('../../assets/Menu/img/icon.png') #8dc038  no-repeat left 5px center;
+}
+.Tabs ul li.parent a{color:#fff; font-weight:bold;}
+.Tabs ul li.parent38{background:url('../../assets/Menu/img/icon.png') #8dc038  no-repeat left 5px center;}
+.Tabs ul li.parent40{background:url('../../assets/Menu/img/icon.png') #8dc038  no-repeat left 5px center;}
+.Tabs ul li.parent41{background:url('../../assets/Menu/img/icon.png') #8dc038  no-repeat left 5px center;}
+.MenuProductGroup .NoiDung{margin:20px 0;}
+.MenuProductGroup .NoiDung .owl-nav{position:absolute; top: -53px;  right: 5px;}
+.MenuProductGroup .NoiDung .owl-nav .owl-prev{font-size:0; float:left;  background:url('../../assets/Menu/img/prevNoActive.png')  no-repeat center center ; width:20px; height:20px; color:#fff !important; box-sizing:border-box; border-radius:50%;}
+.MenuProductGroup .NoiDung .owl-nav .owl-next{ float:left; font-size:0; background:url('../../assets/Menu/img/nextNoActive.png')  no-repeat center center ;  width:20px; height:20px; color:#fff !important; box-sizing:border-box; border-radius:50%;}
+.MenuProductGroup .NoiDung .owl-nav .owl-prev:hover{ background:url('../../assets/Menu/img/prevActive.png') no-repeat center center ;}
+.MenuProductGroup .NoiDung .owl-nav .owl-next:hover{ background:url('../../assets/Menu/img/nextActive.png') no-repeat center center ;}
+.title>h3{margin-top: 10px !important;}

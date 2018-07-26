@@ -1,0 +1,352 @@
+﻿.ProductHot .SlideProductHot{position:relative;width: 80%;float:right;padding: 0px 20px;margin-top:22px;}
+.ProductHot .SlideProductHot .item{float:left;margin:0 auto;position:relative;min-height: 60px;}
+.ProductHot .SlideProductHot .image{
+    display: inline-block;
+    width: 61px;
+    margin-right: 17px;
+}
+.ProductHot .SlideProductHot .NoiDung{font-size:12px;text-transform:uppercase;float: left;display: inline-block;width: calc(100% - 80px);}
+.ProductHot .SlideProductHot .NoiDung .tensp{display: inline-block;color:#404040;}
+.ProductHot .SlideProductHot .NoiDung .giasp{display:block; color:#ef5e3c;}
+.ProductHot .SlideProductHot .owl-nav .owl-prev,.ProductHot .SlideProductHot .owl-nav .owl-next{top:45%; width:6px; height:10px; font-size:0;}
+.ProductHot .SlideProductHot .owl-nav .owl-prev{position:absolute; left:0; background:url('../../assets/Product/img/prev.png') no-repeat center center; }
+.ProductHot .SlideProductHot .owl-nav .owl-next{position:absolute; right:0; background:url('../../assets/Product/img/next.png') no-repeat center center; }
+
+/*San pham ban chay*/
+.SanPhamBanChay{ border:1px dashed #e6e6e6; margin-top:40px;}
+.SanPhamBanChay .title1{font-weight:bold; border-bottom:1px dashed #e6e6e6; padding:0 20px;    padding-left: 55px; line-height:46px; height:46px; width:100%; color:#8dc038;  font-family: 'Roboto Condensed'; font-size:16px; text-transform:uppercase; background:url('../../assets/Product/img/spbc.png') no-repeat left center;}
+.SanPhamBanChay .title1 h3 {
+         margin: 0;
+        padding: 0;
+        font-size: 16px;
+        line-height: 46px;
+        height: 46px;
+        font-weight: bold;
+        font-family: 'Roboto Condensed';
+        text-transform: uppercase;
+    }
+.SanPhamBanChay .list .item{box-sizing:border-box; padding:15px; width:100%;}
+.SanPhamBanChay .list .item .image{width:102px; height:100px; float:left; margin-right:15px;}
+.SanPhamBanChay .list .item .image img{width:100%;}
+.SanPhamBanChay .list .item .title{font-family: 'Roboto Condensed'; font-size:14px; color:#404040; font-weight:bold;margin-bottom:10px; display:block;}
+.SanPhamBanChay .list .item .title:hover{color:#8dc038;}
+.SanPhamBanChay .list .item .giacu{color: #b7b7b7; text-decoration:line-through;font-size: 14px; display:block;}
+.SanPhamBanChay .list .item .giamoi{ color: #404040;text-decoration: none;font-size: 15px; display:block;}
+/*San pham nổi bật*/
+.SanPhamNoiBat{ border:1px solid #e6e6e6; margin-bottom:40px; margin-top:-30px;}
+.SanPhamNoiBat .title1{background:url('../../assets/Product/img/icon.png') #8dc038  no-repeat left 5px center;padding:0 20px;line-height:46px;height:46px;width:100%;padding-left: 36px;font-weight: bold;color:#fff;font-family: 'Roboto Condensed';font-size:16px;text-transform:uppercase;} 
+.SanPhamNoiBat .list .item{border-bottom:1px solid #e6e6e6;text-align:center;box-sizing:border-box;padding:15px;width:100%;background: #FBF9FA;}
+.SanPhamNoiBat .list .item .image{width:100%;height:auto;float:left;border: 1px solid #ECECEC;background: #fff;}
+.SanPhamNoiBat .list .item .image img{width:100%;}
+.SanPhamNoiBat .list .item .title{width: 100%;float:left;text-align:center;text-transform:uppercase;margin:10px 0;font-family: 'Roboto Condensed';font-size:14px;color: #404040;font-weight: normal;display:block;}
+.SanPhamNoiBat .list .item .title:hover{color:#8dc038;}
+.SanPhamNoiBat .list .item .giacu{color: #b7b7b7; text-decoration:line-through;font-size: 14px; display:block;}
+.SanPhamNoiBat .list .item .giamoi{font-weight: normal;color: #404040;text-decoration: none;font-size: 15px;display:block;}
+.SanPhamNoiBat .list .item #btnChonMua{text-transform:uppercase; padding:8px 25px; text-align:center; border:1px solid #cbcbcb; color:#404040;font-family: 'Roboto Condensed';  font-size:14px; margin:10px 0; background:#fff; outline:none; }
+.SanPhamNoiBat .list .item #btnChonMua:hover{background:#8dc038; color:#fff;}
+/*Chi tiet san pham*/
+.ProductDetail {margin:30px 0;font-family: 'Roboto Condensed'; }
+.ProductDetail .anhdaidien{}
+.ProductDetail .imageArray .item.active img{border:1px solid #f1592a;}
+.ProductDetail .imageBig{width:330px  !important; height:249px  !important;  float:left;}
+.ProductDetail .imageBig img{width:330px  !important; height:246px  !important; }
+.ProductDetail  .imageArray{float:left;position: relative;overflow: hidden;width: 321px;}
+.ProductDetail  .imageArray .item{height:84px  !important;float:left;margin-top: 2px;margin-right: 8px;}
+.ProductDetail  .imageArray .item img{   width:100px  !important; height:77px  !important;  cursor:pointer; border:1px solid #dfdfdf;    border-width: 1px !important;}
+.ProductDetail .title{width:100% !important;font-size: 18px;text-transform:uppercase;font-weight: normal;color: #404040  !important;text-decoration: none;display:block;cursor:pointer;line-height: 26px;}
+.ProductDetail .title:hover{color:#8dc038;  }
+.ProductDetail .code{margin: 11px 0 0 0;color: #404040; font-size: 14px;}
+.ProductDetail .price{margin: 11px 0 20px 0;}
+.ProductDetail .price .giacu{display:none !important; color: #b7b7b7; text-decoration:line-through;font-size: 14px;}
+.ProductDetail .price .giamoi{font-weight: bold; color: #da131d;text-decoration: none;font-size: 20px; display:block;}
+.ProductDetail #btnChonMua{text-transform:uppercase;padding: 7px 14px 7px 6px;padding-left: 40px;border:none;color:#fff;font-family: 'Roboto Condensed';font-size: 16px;margin:20px 0;outline:none;background: url('img/cart.png') #94cb39 no-repeat left 16px center;text-align: center;}.ProductDetail .desctiption {font-size: 14px;display:block;color: #404040;line-height: 21px;}
+.ProductDetail .DivbtLike{width:100% !important; float:left; margin-top:60px; text-align:left;}
+.ProductDetail .DivbtLike> div{float:left;}
+.ProductDetail .DivbtLike> div.bttw{margin-right:10px;}
+@media screen and (max-width:767px) {
+    .ProductDetail .NoiDungChiTiet{ margin-top:20px;}
+}
+ 
+@media screen and (min-width:601px){
+    .ProductDetail .title{margin:0 !important;}  
+}
+@media screen and (max-width:600px){
+.ProductDetail .anhdaidien{border:1px solid #eee;}
+.ProductDetail .imageArray .item.active img{border:1px solid #f1592a;}
+.ProductDetail .imageBig{width:330px  !important; height:249px  !important;  float:left;}
+.ProductDetail .imageBig img{width:330px  !important; height:246px  !important; }
+.ProductDetail  .imageArray{float:left;position: relative;overflow: hidden;width: 321px;}
+.ProductDetail  .imageArray .item{height:84px  !important;float:left;margin-top: 2px;margin-right: 8px;}
+.ProductDetail  .imageArray .item img{   width:100px  !important; height:77px  !important;  cursor:pointer; border:1px solid #dfdfdf;    border-width: 1px !important;}
+.ProductDetail .title{width:100% !important; font-size:20px; text-transform:uppercase; margin:0 !important; font-weight: bold; color: #404040;text-decoration: none; display:block;cursor:pointer}
+.ProductDetail .title:hover{color:#8dc038;  }
+.ProductDetail .price{margin:20px 0;}
+.ProductDetail .price .giacu{display:none !important; color: #b7b7b7; text-decoration:line-through;font-size: 14px;}
+.ProductDetail .price .giamoi{font-weight: bold; color: #da131d;text-decoration: none;font-size: 20px; display:block;}
+.ProductDetail #btnChonMua{text-transform:uppercase;padding: 11px 15px 11px 10px;padding-left: 40px;border:none;color:#fff;font-family: 'Roboto Condensed';font-size: 16px;margin:20px 0;outline:none;background: url('../../assets/Product/img/cart.png') #94cb39 no-repeat left 16px center;text-align: center;}.ProductDetail .desctiption {font-size: 14px; display:block; color: #404040;}
+.ProductDetail .desctiption {line-height:20px; font-size:16px; }
+}
+/*San pham lien quan*/
+.ProductRef {margin-top:30px;}
+.ProductRef .skew-bar5{width:100%; margin-bottom:20px; display:block; border-bottom:1px solid #b2b2b2;}
+.ProductRef .skew-bar5 h2{text-transform:uppercase; font-size:17px;font-weight:bold;  float:left; margin-bottom:5px !important;}
+.ProductRef .list{}
+.ProductRef .list .danhsachRef{}
+.ProductRef .list .item{ text-align:center;}
+.ProductRef .list .item .image{width:100%;height:auto; float:left;}
+.ProductRef .list .item .image img{width:100%;}
+.ProductRef .list .item  .title{width:100% !important;margin:20px 0 !important; float:left; text-align:center !important; text-transform:uppercase; font-family: 'Roboto Condensed'; font-size:14px; color:#404040; font-weight:bold; display:block;}
+.ProductRef .list .title:hover{color:#8dc038;  }
+.ProductRef .list .item .price{margin:10px 0;float:left;height: 41px;}
+.ProductRef .list .item .price .giacu{ color: #b7b7b7; text-decoration:line-through;font-size: 14px; display:block !important;}
+.ProductRef .list .item .price .giamoi{font-weight: bold; color: #404040;text-decoration: none;font-size: 15px; display:block;}
+.ProductRef .list .item #btnChonMua{text-transform:uppercase; padding:8px 25px; text-align:center; border:1px solid #cbcbcb; color:#404040;font-family: 'Roboto Condensed';  font-size:14px; margin:10px 0; background:#fff; outline:none; }
+.ProductRef .list .item  #btnChonMua:hover{background:#8dc038; color:#fff;}
+
+/*San pham lien quan*/
+.ProductListing{margin:40px 0;  margin-bottom:40px; width:100%;border:1px dashed #e6e6e6;}
+.ProductListing .title1{background:#8dc038; padding:0 20px;   line-height:46px; height:46px; width:100%; color:#fff;  font-family: 'Roboto Condensed'; font-size:16px; text-transform:uppercase; } 
+.ProductListing .list .item{ text-align:center; box-sizing:border-box; padding:15px;}
+.ProductListing .list .item .image{width:100%;height:auto; float:left;}
+.ProductListing .list .item .image img{width:100%;}
+.ProductListing .list .item .title{width:100% !important;float:left;text-align:center;text-transform:uppercase;margin:10px 0;font-family: 'Roboto Condensed';font-size:14px;color:#404040;font-weight:bold;display:block;height: 40px;overflow: hidden;}
+.ProductListing .list .item .title:hover{color:#8dc038;}
+.ProductListing .list .item .price{height:40px;overflow: hidden;}
+.ProductListing .list .item .giacu{color: #b7b7b7; text-decoration:line-through;font-size: 14px; display:block;}
+.ProductListing .list .item .giamoi{font-weight: bold; color: #404040;text-decoration: none;font-size: 15px; display:block;}
+.ProductListing .list .item #btnChonMua{text-transform:uppercase; padding:8px 25px; text-align:center; border:1px solid #cbcbcb; color:#404040;font-family: 'Roboto Condensed';  font-size:14px; margin:10px 0; background:#fff; outline:none; }
+.ProductListing .list .item #btnChonMua:hover{background:#8dc038; color:#fff;}
+/*Trang chu*/ 
+/*  Tablet  */
+@media (min-width:767px) and (max-width:992px){
+.ProductListing .col-sm-1:nth-child(12n+1),
+.ProductListing .col-sm-2:nth-child(6n+1),
+.ProductListing .col-sm-3:nth-child(4n+1),
+.ProductListing .col-sm-4:nth-child(3n+1),
+.ProductListing .col-sm-6:nth-child(2n+1){
+    clear: left;
+  }
+}
+
+/*Large Desktop*/
+@media (min-width:993px){
+.ProductListing .col-md-1:nth-child(12n+1),
+.ProductListing .col-md-2:nth-child(6n+1),
+.ProductListing .col-md-3:nth-child(4n+1),
+.ProductListing .col-md-4:nth-child(3n+1),
+.ProductListing .col-md-6:nth-child(2n+1),
+.ProductListing .col-lg-1:nth-child(12n+1),
+.ProductListing .col-lg-2:nth-child(6n+1),
+.ProductListing .col-lg-3:nth-child(4n+1),
+.ProductListing .col-lg-4:nth-child(3n+1),
+.ProductListing .col-lg-6:nth-child(2n+1){
+    clear: left;
+  }
+}
+
+@media screen and (max-width:767px){
+    .ProductListing .col-xs4-6:nth-child(2n+1),.ProductListing .col-xs3-6:nth-child(2n+1){
+    clear: left;
+  }
+}
+/*Group san pham*/
+.ProductGroupListing.sliderTrangTrong{margin:20px 0; width:100%; float:left;}
+
+.MenuProductGroup .NoiDung .item{ text-align:center;}
+.MenuProductGroup .NoiDung .item .image{width:100%;height:auto; float:left;}
+.MenuProductGroup .NoiDung .item .image img{width:100%;}
+.MenuProductGroup .NoiDung .item  .title{width:100% !important;margin:20px 0 0 0 !important;float:left;text-align:center !important;text-transform:uppercase;font-family: 'Roboto Condensed';font-size:14px;color:#404040;font-weight:bold;display:block; min-height: 60px;}
+.MenuProductGroup .NoiDung .title:hover{color:#8dc038;  }
+.MenuProductGroup .NoiDung .item .price{margin: 15px 0;float:left;display: block;height: 30px;}
+.MenuProductGroup .NoiDung .item .price .giacu{ color: #b7b7b7; text-decoration:line-through;font-size: 14px; display:block !important;}
+.MenuProductGroup .NoiDung .item .price .giamoi{font-weight: bold; color: #404040;text-decoration: none;font-size: 15px; display:block;}
+.MenuProductGroup .NoiDung .item #btnChonMua{text-transform:uppercase; padding:8px 25px; text-align:center; border:1px solid #cbcbcb; color:#404040;font-family: 'Roboto Condensed';  font-size:14px; margin:10px 0; background:#fff; outline:none; }
+.MenuProductGroup .NoiDung .item  #btnChonMua:hover{background:#8dc038; color:#fff;}
+
+/*Group san pham*/
+
+/*Popup Gallery san pham*/
+
+/*Begin: Chi tiet album*/
+#GalleryDetail{margin-top:50px;width:100%; overflow:hidden; float:left;}
+#GalleryDetail .title{
+    font-size: 18px;
+    font-family: Arial;
+    font-weight: bold;
+    color: #00a84b;
+    display: block;
+    padding-bottom: 15px;
+    text-align:center;
+}
+@media screen and (min-width:1200px){
+    #GalleryDetail .sliders-wrap-inner li img:hover{
+         transform: scale(1.2, 1.2);
+        -ms-transform: scale(1.2, 1.2);
+        -webkit-transform: scale(1.2, 1.2);
+        -webkit-transition: all 1s;
+        transition: all 1s;
+    }
+}
+@media screen and (min-width:561px){
+    #GalleryDetail .listImage .item{box-sizing:border-box;}
+    #GalleryDetail .listImage img{padding-right:5px; border-radius:15px; }
+}
+
+
+
+/*Loading popup thu vien anh*/
+.GalleryDetail{position:fixed; top:0;left:0;right:0;bottom:0; display:none; z-index:1000;}
+.GalleryLoading{position:fixed; top:0;left:0;right:0;bottom:0; display:none; z-index:1000;}
+.GalleryLoading .overlay{    
+    background: #000;
+    top:0;left:0;right:0;bottom:0;
+    z-index: 9999999;
+    -moz-opacity: 0.8;
+    opacity: .80;
+    filter: alpha(opacity=80);
+    position:fixed;
+    z-index:1001;
+
+}
+.GalleryLoading .GalleryLoadingW100H100{
+    position:relative; height:100%; width:100%;
+}
+.GalleryLoading .GalleryLoadingW100H100 img {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto auto;
+        position: absolute;
+        width:250px;
+        height:250px;
+        z-index: 999999;
+}
+
+
+
+/*Gallery details zoom*/
+.GalleryDetailZoom{position:fixed; top:0;left:0;right:0;bottom:0; display:none !important; z-index:1000;}
+.GalleryDetailZoom .overlay{    
+    background: #000;
+    top:0;left:0;right:0;bottom:0;
+    z-index: 9999999;
+    -moz-opacity: 0.8;
+    opacity: .80;
+    filter: alpha(opacity=80);
+    position:fixed;
+    z-index:1001;
+}
+.GalleryDetailZoom .GalleryDetailZoomW100H100{
+    position:relative; height:100%; width:100%;
+}
+.GalleryDetailZoom .GalleryDetailZoomW100H100 img {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto auto;
+         position: absolute;
+         width:250px;
+         height:250px;
+}
+.GalleryDetailZoom .GalleryDetailZoomW100H100 a.btclose {
+        width: 28px;
+        height: 28px;
+        background: url(../../assets/Product/img/btClose.png) no-repeat;
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1003;
+        cursor:pointer;
+    }
+/*Gallery details zoom*/
+.GalleryDetail .overlay{    
+    background: #000;
+    top:0;left:0;right:0;bottom:0;
+    z-index: 9999999;
+    -moz-opacity: 0.8;
+    opacity: .80;
+    filter: alpha(opacity=80);
+    position:fixed;
+    z-index:1001;
+}
+.GalleryDetail .GalleryDetailW100H100{position:relative; height:100%; width:100%;}
+.GalleryDetail .GalleryDetailW100H100 .GalleryBox a.btclose {
+        width: 28px;
+        height: 28px;
+        background: url(../../assets/Product/img/btClose.png) no-repeat;
+        display: block;
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        z-index: 1003;
+        cursor:pointer;
+    }
+.GalleryDetail .GalleryDetailW100H100 .GalleryBox .btnPrev,.GalleryDetail .GalleryDetailW100H100 .GalleryBox .btnNext{
+        display: block;
+        position: absolute;
+        top: 48%;       
+        z-index: 1003;
+        cursor:pointer;
+        width:24px;
+        height:26px;
+        font-size:0;
+}
+.GalleryDetail .GalleryDetailW100H100 .GalleryBox .btnNext{right: -35px; background:url('../../assets/Product/img/next.png') no-repeat;}
+.GalleryDetail .GalleryDetailW100H100 .GalleryBox .btnPrev{left:-35px; background:url('../../assets/Product/img/prev.png') no-repeat;}
+.GalleryDetail .GalleryDetailW100H100 .GalleryBox {
+        padding: 6px;
+        border: solid 1px #d4d4d4;
+        border-radius: 3px;
+        background: url('../../assets/Product/img/bgpopupvideo.png') repeat;
+        position:absolute;
+        top:0;left:0;right:0;bottom:0;
+        margin:auto auto;
+        width:600px;
+        height:340px;
+        z-index:1002;
+    }
+  .GalleryDetail .GalleryDetailW100H100 .GalleryBox .GalleryBoxContent{ width:100%; height:100%;}
+  .GalleryDetail .GalleryDetailW100H100 .GalleryBox .item{display:none; width:100%; height:100%;}
+  .GalleryDetail .GalleryDetailW100H100 .GalleryBox .item img{width:100%;}
+  .GalleryDetail .GalleryDetailW100H100 .GalleryBox .item.active{display:block;}
+  .GalleryDetail .GalleryDetailW100H100 .GalleryBox .item.active img{max-height:100%;}
+  @media screen and (min-width:768px){
+       .GalleryDetail .GalleryDetailW100H100 .GalleryBox .item.active:hover img {
+        transform: scale(1.5, 1.5);
+        -ms-transform: scale(1.5, 1.5);
+        -webkit-transform: scale(1.5, 1.5);
+        -webkit-transition: all 1s;
+        transition: all 1s;
+        position: absolute;
+        z-index: 1005;
+        border:1px solid #fff;
+        border-radius:5px;
+        max-width:100%;
+    }
+  }
+  @media screen and (max-width:550px){
+      .GalleryDetail .GalleryDetailW100H100 .GalleryBox{width:95%; height:auto;top:20%; bottom:auto; max-height:320px;}
+      .GalleryDetail .GalleryDetailW100H100 .GalleryBox img{width:100%; max-height:300px;}
+      .GalleryDetail .GalleryDetailW100H100 .GalleryBox .btnNext{right:-5px;}
+      .GalleryDetail .GalleryDetailW100H100 .GalleryBox .btnPrev{left:-5px;}
+  }
+/*End: Chi tiet album*/
+/*tab chi tiet san pham*/
+#TabMenu{width:100%; float:left;}
+#TabMenu .item{overflow:hidden;cursor:pointer;float:left;text-align:center;height: 47px;line-height: 47px;padding: 0 20px;}
+#TabMenu .item a{text-transform:uppercase;font-size: 14px;font-family: 'Roboto Condensed';font-weight:normal;color: #404040;}
+#TabMenu .item.active{border-top: 1px solid #d8d8d8;border-left: 1px solid #d8d8d8;border-right: 1px solid #d8d8d8;border-bottom: none;margin-bottom: -3px;}
+#TabMenu .item.active a{ padding-bottom:10px;color:#404040;  font-weight:bold; display:inline-block; height:100%; border-bottom:3px solid #9dcf47;}
+#divNoiDung{line-height: 20px;font-size: 14px;width:100%;float:left;padding:20px;padding-top:40px;padding-bottom:40px;border: 1px solid #d8d8d8;}
+#divNoiDung .item{float:left; text-align:left; border:1px solid #b2b2b2; background:#fff; font-size:14px;font-family: 'Roboto Condensed'; color:#404040; line-height:20px;}
+#divNoiDung .TieuDe {display:block;width:100%;height:40px;float:left;line-height:40px;border:1px solid #b2b2b2;padding:0 10px;background: #fcfcfc;font-size: 14px;font-family: 'Roboto Condensed';font-weight: normal;color: #404040;margin: 10px 0;text-transform: uppercase;}
+#divNoiDung .TieuDe.active{background: #fff;}   
+
+#divNoiDung img{max-width:100%; height:auto;}
+#divNoiDung ul li {list-style:disc;}
+#divNoiDung ol li {list-style:decimal;}
+/*tab chi tiet san pham*/
+    

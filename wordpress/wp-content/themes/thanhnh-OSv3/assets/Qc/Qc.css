@@ -1,0 +1,26 @@
+﻿
+.QuangCao{position:fixed !important;top:0;left:0;right:0;bottom:0;z-index:99999999;}
+.QuangCao .overlay{background:#000;top:0;left:0;right:0;bottom:0;z-index:9999999;-moz-opacity:0.8;opacity:.80;filter:alpha(opacity=80);position:fixed;z-index:1001;}
+.QuangCao .GalleryDetailW100H100{position:relative;height:100%;width:100%;}
+.QuangCao .GalleryDetailW100H100 .GalleryBox a.btclose{width:28px;height:28px;display:block;background:url(img/btClose.png) no-repeat;position:absolute;top:-10px;right:-10px;z-index:1003;cursor:pointer;}
+.QuangCao .GalleryDetailW100H100 .GalleryBox{padding:6px;border:solid 1px #d4d4d4;border-radius:3px;position:absolute;top:0;left:0;right:0;bottom:0;margin:auto auto;width:800px;height:452px;z-index:999999999999999;}
+.QuangCao .GalleryDetailW100H100 .GalleryBox .GalleryBoxContent{width:100%;height:100%;overflow:hidden;}
+.QuangCao .GalleryDetailW100H100 .GalleryBox .item{width:100%;height:100%;}
+.QuangCao .GalleryDetailW100H100 .GalleryBox .item img{width:100%;}
+@media screen and (max-width:550px){.QuangCao .GalleryDetailW100H100 .GalleryBox{width:95%;height:auto;top:20%;bottom:auto;max-height:320px;}
+.QuangCao .GalleryDetailW100H100 .GalleryBox img{width:100%;max-height:300px;}
+}
+#AdvQuangCao{margin:20px 0px 20px 0;}
+#AdvQuangCao #owl-demophoto{width:100%;overflow:hidden;margin-top:15px;}
+#AdvQuangCao #owl-demophoto ul{width:2000px;height:75px;overflow:hidden;margin:0;}
+#AdvQuangCao #owl-demophoto ul li{height:75px;line-height:75px;color:#000;float:left;margin-right:20px;list-style:none;float:left !important;text-align:left;font-weight:normal;font-size:14px;color:#000;padding-left:20px;}
+#owl-demophoto ul li a{color:#000}
+#AdvQuangCao #owl-demophoto ul li a:hover{color:#f37023;}
+@media screen and (min-width:768px){#AdvQuangCao .prev_a{left:0;}
+#AdvQuangCao .next_a{right:0;}
+#AdvQuangCao #owl-demophoto{margin:0 auto;}
+}
+@media screen and (max-width:767px){#AdvQuangCao .list .title{font-size:16px;height:30px;line-height:30px;}
+#AdvQuangCao .caption a{font-size:22px;font-weight:bold;}
+#AdvQuangCao .prev_a, #ArticleHot .next_a{display:none;}
+}

@@ -1,0 +1,17 @@
+﻿.nav_path {
+    min-height: 38px;
+    line-height: 38px;
+    float: left;
+    display: block;
+    width:100%;
+    margin-top: 25px;
+}
+.nav_path a.home {
+    display: inline-block;
+}
+.nav_path span {font-size: 14px; font-weight: normal;background-repeat: no-repeat; height: 33px;color: #fff;   font-family: 'Roboto Condensed';}
+.nav_path h2 {  float: left;margin: 0; line-height: 38px;}
+ol,ul{-webkit-padding-start: 0px !important; -moz-padding-start: 0px !important; -o-padding-start: 0px !important; -ms-padding-start: 0px !important; list-style:none !important;}
+.nav_path ol{float:left;width:100%;text-align: center;}
+.nav_path ol li{display:inline-block !important;}
+.nav_path ol li h1{margin:0; padding:0;}
