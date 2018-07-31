@@ -557,6 +557,11 @@ require get_parent_theme_file_path( '/inc/customizer.php' );
  */
 require get_parent_theme_file_path( '/inc/icon-functions.php' );
 
+/**
+ * ZOHO CRM init/setup
+ */
+require get_parent_theme_file_path( '/inc/zoho/crm/crm.php' );
+
 require (TEMPLATEPATH . '/custom-function.php');
 
 /**

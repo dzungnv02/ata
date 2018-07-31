@@ -706,6 +706,43 @@ function caption_shortcode( $atts, $content = null ) {
 add_action('acf/save_post', 'my_save_post');
 
 function my_save_post( $post_id ) {
+    // try to get first name / last name by "Họ và tên" field =))
+    $full_name = get_field('agency_name', $post_id);
+    $name_arr = explode(" ", $full_name);
+
+    if (sizeof($name_arr) >= 2) {
+        $last_name = $name_arr[0];
+        unset($name_arr[0]);
+        $first_name = implode(" ", $name_arr);
+    } else {
+        $name_arr = explode("_", $full_name);
+        if (sizeof($name_arr) >= 2) {
+            $last_name = $name_arr[0];
+            unset($name_arr[0]);
+            $first_name = implode(" ", $name_arr);
+        } else {
+            $last_name = 'Unknown';
+            $first_name = $full_name;
+        }
+    }
+
+    $email = get_field('agency_email', $post_id);
+    $phone = get_field('agency_phone', $post_id);
+
+    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        // insert a new lead to Zoho
+        $crm = new \Zoho\CRM;
+        $crm->insertRecord(\Zoho\CRM::MODULE_LEADS, [
+            'data' => [
+                [
+                    "Last_Name" => $last_name,
+                    "First_Name" => $first_name,
+                    "Email" => $email,
+                    "Phone" => $phone
+                ]
+            ]
+        ]);
+    }
    
     // bail early if not a contact_form post
     

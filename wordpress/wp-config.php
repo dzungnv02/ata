@@ -20,16 +20,16 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'xuki3582_ata');
+define('DB_NAME', '2018_ata');
 
 /** MySQL database username */
-define('DB_USER', 'xuki3582_ata_user');
+define('DB_USER', 'root');
 
 /** MySQL database password */
-define('DB_PASSWORD', '12345678aA@');
+define('DB_PASSWORD', 'sqlpass');
 
 /** MySQL hostname */
-define('DB_HOST', 'db');
+define('DB_HOST', 'localhost:3307');
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8mb4');
@@ -87,6 +87,16 @@ define('WP_DEBUG', false);
 /** Absolute path to the WordPress directory. */
 if ( !defined('ABSPATH') )
 	define('ABSPATH', dirname(__FILE__) . '/');
+
+/** Sets up Zoho CRM vars / setting */
+if ( !defined('ZOHO_APP_REFRESH_CODE') )
+    define('ZOHO_APP_REFRESH_CODE', '1000.e6766c6a970d4cdcfe534bb5e3810762.3ce5cad60a64f74dce75ee271bbb7f7d');
+if ( !defined('ZOHO_APP_CLIENT_ID') )
+    define('ZOHO_APP_CLIENT_ID', '1000.ZWPOOJG47UB50418989QG2HD2SFO41');
+if ( !defined('ZOHO_APP_CLIENT_SECRET') )
+    define('ZOHO_APP_CLIENT_SECRET', '3a231895b668b58bec5f59fda4da4f080db42eb7d1');
+
+// 1000.0b273f593d47291e59baf2c4fb3091c6.dafa9f30b9f383d8f92907951989deb5
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');

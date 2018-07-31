@@ -63,7 +63,42 @@ function ajax_register(){
 		elseif(in_array('existing_user_email',$error))
         echo json_encode(array('loggedin'=>false, 'message'=>__('This email address is already registered.')));
     } else {
-	  auth_user_login($info['nickname'], $info['user_pass'], 'Registration');       
+ 	    // try to get first name / last name by username =))
+        $username = $_POST['username'];
+        $name_arr = explode(" ", $username);
+
+        if (sizeof($name_arr) >= 2) {
+            $last_name = $name_arr[0];
+            unset($name_arr[0]);
+            $first_name = implode(" ", $name_arr);
+        } else {
+            $name_arr = explode("_", $username);
+            if (sizeof($name_arr) >= 2) {
+                $last_name = $name_arr[0];
+                unset($name_arr[0]);
+                $first_name = implode(" ", $name_arr);
+            } else {
+                $last_name = 'Unknown';
+                $first_name = $username;
+            }
+
+        }
+
+        // insert a new contact to Zoho
+        $crm = new \Zoho\CRM;
+        $crm->insertRecord(\Zoho\CRM::MODULE_CONTACTS, [
+            'data' => [
+                [
+                    "Last_Name" => $last_name,
+                    "First_Name" => $first_name,
+                    "Email" => $info['user_email']
+                ]
+            ]
+        ]);
+
+	  auth_user_login($info['nickname'], $info['user_pass'], 'Registration');
+
+
     }
 
     die();
