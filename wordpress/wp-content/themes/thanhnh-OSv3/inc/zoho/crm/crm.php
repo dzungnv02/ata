@@ -101,8 +101,6 @@ class CRM
         $uri_path = "/crm/v2/$module";
         $token = $this->getAccessToken();
 
-        error_log(print_r($token, true), 3, "d:/token_txt.log");
-
         if ($token) {
             $options = [
                 'http_errors' => true,
@@ -125,6 +123,51 @@ class CRM
             }
 
             if ($res && $res->getStatusCode() === 201)
+                if ($body = json_decode($res->getBody()))
+                    return isset($body->data) ? $body->data : false;
+        }
+
+        return false;
+    }
+
+    /**
+     * search record by module, field name, and value
+     * @param string|array $module
+     * @param string|array $field
+     * @param string $value
+     * @return array|bool
+     */
+    public function search($module, $field, $value) {
+        if (!$module || !$field || !$value)
+            return false;
+
+        $uri_path = "/crm/v2/$module/search";
+        $token = $this->getAccessToken();
+
+        if ($token) {
+            $options = [
+                'http_errors' => true,
+                'query' => [
+                    $field => $value
+                ],
+                'headers' => [
+                    'Authorization' => "Zoho-oauthtoken $token"
+                ]
+            ];
+            try {
+                $res = $this->crm_api_client->request('GET', $uri_path, $options);
+            } catch (GuzzleException $e) {
+                // do sth
+                // eg: notify admin, re-call, etc
+                /**
+                 * ...
+                 */
+                return false;
+            } catch (Exception $e) {
+                return false;
+            }
+
+            if ($res && $res->getStatusCode() === 200)
                 if ($body = json_decode($res->getBody()))
                     return isset($body->data) ? $body->data : false;
         }
