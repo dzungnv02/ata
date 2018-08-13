@@ -632,3 +632,90 @@ add_filter( 'wc_smart_cod_fee_title', 'change_cod_title' );
 function change_cod_title( $title ) {
 	return 'Phí thu hộ COD';
 }
+
+/**
+ * order checkout successfully hook
+ */
+add_action('woocommerce_thankyou', 'import_order_infor_to_zoho', 10, 1);
+
+function import_order_infor_to_zoho($order_id) {
+
+    if (!$order_id)
+        return false;
+
+    $crm = new \Zoho\CRM;
+
+    // get an instance of the order object
+    $order = wc_get_order($order_id);
+
+    // get user
+    $user = $order->get_user();
+
+    // init data
+    $data = [
+        'Account_Number' => [
+            'id' => '3433184000000172104',
+        ],
+        // search vaf check trc
+//        'Contact_Name' => [
+//            'id' => $crm->search(\Zoho\CRM)
+//        ],
+        'Due_Date' => date('Y-m-d'),
+        'Product_Details' => [],
+        'Subject' => 'vyt subject'
+    ];
+
+    // get products
+    foreach ($order->get_items() as $item_id => $item_data) {
+
+        // search products
+        $temp_products = $crm->search(\Zoho\CRM::MODULE_PRODUCTS, 'Product_Name', $item_data['name']);
+        if (!$temp_products) {
+            // create product
+            $temp_products = $crm->insertRecord(\Zoho\CRM::MODULE_PRODUCTS, [
+                [
+                    'Product_Code' => wc_get_product($item_id)->get_sku(),
+                    'Product_Name' => $item_data['name']
+                ]
+            ]);
+        }
+
+        if ($temp_products[0] && $temp_products[0]['id']) {
+
+            $data['Product_Details'][] = [
+                'product' => [
+                    'Product_Code' => $temp_products[0]['Product_Code'],
+                    'name' => $item_data['name'],
+                    'id' => $temp_products[0]['id']
+                ],
+                'quantity' => $order->get_item_meta($item_id, '_qty', true),
+                'Discount' => 0, // change when update gift and discount
+                'total_after_discount' => $order->get_item_meta($item_id, '_line_total', true),
+                'net_total' => $order->get_item_meta($item_id, '_line_total', true),
+                'book' => null,
+                'Tax' => 0,
+                'list_price' => $order->get_item_meta($item_id, '_line_total', true) / $order->get_item_meta($item_id, '_qty', true),
+                'unit_price' => $order->get_item_meta($item_id, '_line_total', true) / $order->get_item_meta($item_id, '_qty', true),
+                'quantity_in_stock' => 20,
+                'total' => $order->get_item_meta($item_id, '_line_total', true),
+                'product_description' => null,
+                'line_tax' => [
+                    [
+                        'percentage' => 0,
+                        'name' => 'VAT',
+                        'value' => 0
+                    ]
+                ]
+            ];
+        }
+    }
+
+    // insert a new contact to Zoho
+    $crm = new \Zoho\CRM;
+    $crm->insertRecord(\Zoho\CRM::MODULE_SALE_ORDERS, [
+        'data' => [
+            $data
+        ]
+    ]);
+
+}

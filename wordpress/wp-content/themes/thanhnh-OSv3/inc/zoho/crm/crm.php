@@ -16,6 +16,8 @@ class CRM
     // Modules
     const MODULE_CONTACTS = 'contacts';
     const MODULE_LEADS = 'leads';
+    const MODULE_SALE_ORDERS = 'sales_orders';
+    const MODULE_PRODUCTS = 'products';
 
     /**
      * @var \GuzzleHttp\Client
