@@ -673,9 +673,11 @@ function import_order_infor_to_zoho($order_id) {
         if (!$temp_products) {
             // create product
             $temp_products = $crm->insertRecord(\Zoho\CRM::MODULE_PRODUCTS, [
-                [
-                    'Product_Code' => wc_get_product($item_id)->get_sku(),
-                    'Product_Name' => $item_data['name']
+                'data' => [
+                    [
+                        'Product_Code' => wc_get_product($item_id)->get_sku(),
+                        'Product_Name' => $item_data['name']
+                    ]
                 ]
             ]);
         }
