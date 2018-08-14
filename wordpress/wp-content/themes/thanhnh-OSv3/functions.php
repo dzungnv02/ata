@@ -672,10 +672,13 @@ function import_order_infor_to_zoho($order_id) {
         $temp_products = $crm->search(\Zoho\CRM::MODULE_PRODUCTS, 'Product_Name', $item_data['name']);
         if (!$temp_products) {
             // create product
+            $product_code = !empty(wc_get_product($item_id)->get_sku())
+                ? wc_get_product($item_id)->get_sku()
+                : 'unknown ' . rand(1000,2000);
             $temp_products = $crm->insertRecord(\Zoho\CRM::MODULE_PRODUCTS, [
                 'data' => [
                     [
-                        'Product_Code' => wc_get_product($item_id)->get_sku(),
+                        'Product_Code' => $product_code,
                         'Product_Name' => $item_data['name']
                     ]
                 ]
@@ -716,7 +719,7 @@ function import_order_infor_to_zoho($order_id) {
     $crm = new \Zoho\CRM;
     $crm->insertRecord(\Zoho\CRM::MODULE_SALE_ORDERS, [
         'data' => [
-            $data
+            [$data]
         ]
     ]);
 
