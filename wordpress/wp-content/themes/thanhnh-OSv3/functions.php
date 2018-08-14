@@ -669,40 +669,37 @@ function import_order_infor_to_zoho($order_id) {
     foreach ($order->get_items() as $item_id => $item_data) {
 
         // search products
-        $temp_products = $crm->search(\Zoho\CRM::MODULE_PRODUCTS, 'Product_Name', $item_data['name']);
+        $temp_products = $crm->search(\Zoho\CRM::MODULE_PRODUCTS, 'criteria','((Product_Code:equals:'."ID".$item_data['product_id'].') and (Product_Name:equals:'.$item_data['name'].'))');
         if (!$temp_products) {
             // create product
-            $product_code = !empty(wc_get_product($item_id)->get_sku())
-                ? wc_get_product($item_id)->get_sku()
-                : 'unknown ' . rand(1000,2000);
             $temp_products = $crm->insertRecord(\Zoho\CRM::MODULE_PRODUCTS, [
                 'data' => [
                     [
-                        'Product_Code' => $product_code,
+                        'Product_Code' => "ID".$item_data['product_id'],
                         'Product_Name' => $item_data['name']
                     ]
                 ]
             ]);
         }
 
-        if ($temp_products[0] && $temp_products[0]['id']) {
+        if ($temp_products[0] && $temp_products[0]->id) {
 
             $data['Product_Details'][] = [
                 'product' => [
-                    'Product_Code' => $temp_products[0]['Product_Code'],
+                    'Product_Code' => $temp_products[0]->Product_Code,
                     'name' => $item_data['name'],
-                    'id' => $temp_products[0]['id']
+                    'id' => $temp_products[0]->id
                 ],
-                'quantity' => $order->get_item_meta($item_id, '_qty', true),
+                'quantity' => (int)$order->get_item_meta($item_id, '_qty', true),
                 'Discount' => 0, // change when update gift and discount
-                'total_after_discount' => $order->get_item_meta($item_id, '_line_total', true),
-                'net_total' => $order->get_item_meta($item_id, '_line_total', true),
+                'total_after_discount' => (float)$order->get_item_meta($item_id, '_line_total', true),
+                'net_total' => (float)$order->get_item_meta($item_id, '_line_total', true),
                 'book' => null,
                 'Tax' => 0,
-                'list_price' => $order->get_item_meta($item_id, '_line_total', true) / $order->get_item_meta($item_id, '_qty', true),
-                'unit_price' => $order->get_item_meta($item_id, '_line_total', true) / $order->get_item_meta($item_id, '_qty', true),
+                'list_price' => (float)$order->get_item_meta($item_id, '_line_total', true) / $order->get_item_meta($item_id, '_qty', true),
+                'unit_price' => (float)$order->get_item_meta($item_id, '_line_total', true) / $order->get_item_meta($item_id, '_qty', true),
                 'quantity_in_stock' => 20,
-                'total' => $order->get_item_meta($item_id, '_line_total', true),
+                'total' => (float)$order->get_item_meta($item_id, '_line_total', true),
                 'product_description' => null,
                 'line_tax' => [
                     [
@@ -716,10 +713,9 @@ function import_order_infor_to_zoho($order_id) {
     }
 
     // insert a new contact to Zoho
-    $crm = new \Zoho\CRM;
     $crm->insertRecord(\Zoho\CRM::MODULE_SALE_ORDERS, [
         'data' => [
-            [$data]
+            $data
         ]
     ]);
 

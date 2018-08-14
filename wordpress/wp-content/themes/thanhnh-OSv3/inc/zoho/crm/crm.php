@@ -14,10 +14,10 @@ class CRM
     const CRM_API_ENDPOINT_BASE_URL = 'https://www.zohoapis.com';
 
     // Modules
-    const MODULE_CONTACTS = 'contacts';
-    const MODULE_LEADS = 'leads';
-    const MODULE_SALE_ORDERS = 'sales_orders';
-    const MODULE_PRODUCTS = 'products';
+    const MODULE_CONTACTS = 'Contacts';
+    const MODULE_LEADS = 'Leads';
+    const MODULE_SALE_ORDERS = 'Sales_Orders';
+    const MODULE_PRODUCTS = 'Products';
 
     /**
      * @var \GuzzleHttp\Client
@@ -113,15 +113,16 @@ class CRM
             ];
             try {
                 $res = $this->crm_api_client->request('POST', $uri_path, $options);
+                return json_decode($res->getBody());
             } catch (GuzzleException $e) {
                 // do sth
                 // eg: notify admin, re-call, etc
                 /**
                  * ...
                  */
-                return false;
+                return $e->getMessage();
             } catch (Exception $e) {
-                return false;
+                return $e->getMessage();
             }
 
             if ($res && $res->getStatusCode() === 201)
@@ -164,7 +165,7 @@ class CRM
                 /**
                  * ...
                  */
-                return false;
+                return $e->getMessage();
             } catch (Exception $e) {
                 return false;
             }
