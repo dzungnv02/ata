@@ -728,6 +728,14 @@ function my_save_post( $post_id ) {
 
     $email = get_field('agency_email', $post_id);
     $phone = get_field('agency_phone', $post_id);
+    $website = get_field('website', $post_id);
+    $fb_link = get_field('facebook', $post_id);
+    $instagram_link = get_field('instagram', $post_id);
+    $city = get_field('agency_province', $post_id);
+    $district = get_field('agency_district', $post_id);
+    $address = get_field('agency_address', $post_id);
+    $worked_time = get_field('agency_time_activity', $post_id);
+    $other = get_field('khac', $post_id);
 
     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
         // insert a new lead to Zoho
@@ -738,7 +746,15 @@ function my_save_post( $post_id ) {
                     "Last_Name" => $last_name,
                     "First_Name" => $first_name,
                     "Email" => $email,
-                    "Phone" => $phone
+                    "Phone" => $phone,
+                    "Website" => $website,
+                    "Link_Facebook" => $fb_link,
+                    "Link_Instagram" => $instagram_link,
+                    "Th_nh_ph" => $city,
+                    "Qu_n_Huy_n1" => $district,
+                    "Kinh_nghi_m_b_n_h_ng_Online" => $worked_time,
+                    "Dia_Chi" => $address,
+                    "Khac" => $other
                 ]
             ]
         ]);
