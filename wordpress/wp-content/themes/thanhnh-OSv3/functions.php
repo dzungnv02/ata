@@ -680,6 +680,7 @@ function import_order_infor_to_zoho($order_id) {
                     ]
                 ]
             ]);
+            $temp_products = $crm->search(\Zoho\CRM::MODULE_PRODUCTS, 'criteria','((Product_Code:equals:'."ID".$item_data['product_id'].') and (Product_Name:equals:'.$item_data['name'].'))');
         }
 
         if ($temp_products[0] && $temp_products[0]->id) {
