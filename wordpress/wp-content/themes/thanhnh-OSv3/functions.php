@@ -651,6 +651,9 @@ function import_order_infor_to_zoho($order_id) {
     // get user
     $user = $order->get_user();
 
+    $shipping_add = $order->get_address('shipping');
+    $billing_add = $order->get_address('billing');
+
     // init data
     $data = [
         'Account_Number' => [
@@ -662,14 +665,19 @@ function import_order_infor_to_zoho($order_id) {
 //        ],
         'Due_Date' => date('Y-m-d'),
         'Product_Details' => [],
-        'Subject' => 'vyt subject'
+        'Shipping_Street' => $shipping_add['address_1'] . ' ' . $shipping_add['address_2'],
+        'Shipping_City' => $shipping_add['city'],
+        'Shipping_State' => $shipping_add['state'],
+        'Billing_Street' => $billing_add['address_1'] . ' ' . $billing_add['address_2'],
+        'Billing_City' => $billing_add['city'],
+        'Billing_State' => $billing_add['state']
     ];
 
     $subject = '';
 
     // get products
     foreach ($order->get_items() as $item_id => $item_data) {
-        $subject .= $item_data['name'];
+        $subject .= $item_data['name'] . ' ';
 
         // search products
         $temp_products = $crm->search(\Zoho\CRM::MODULE_PRODUCTS, 'criteria','((Product_Code:equals:'."ID".$item_data['product_id'].') and (Product_Name:equals:'.$item_data['name'].'))');
@@ -694,16 +702,16 @@ function import_order_infor_to_zoho($order_id) {
                     'name' => $item_data['name'],
                     'id' => $temp_products[0]->id
                 ],
-                'quantity' => (int)$order->get_item_meta($item_id, '_qty', true),
-                'Discount' => 0, // change when update gift and discount
-                'total_after_discount' => (float)$order->get_item_meta($item_id, '_line_total', true),
-                'net_total' => (float)$order->get_item_meta($item_id, '_line_total', true),
+                'quantity' => (int)$item_data['qty'],
+                'Discount' => (float)$item_data['line_total'] - (float)$item_data['line_subtotal'],
+                'total_after_discount' => (float)$item_data['line_total'],
+                'net_total' => (float)$item_data['line_subtotal'],
                 'book' => null,
                 'Tax' => 0,
-                'list_price' => (float)$order->get_item_meta($item_id, '_line_total', true) / $order->get_item_meta($item_id, '_qty', true),
-                'unit_price' => (float)$order->get_item_meta($item_id, '_line_total', true) / $order->get_item_meta($item_id, '_qty', true),
+                'list_price' => (float)$item_data['line_subtotal'] / (int)$item_data['qty'],
+                'unit_price' => (float)$item_data['line_subtotal'] / (int)$item_data['qty'],
                 'quantity_in_stock' => 20,
-                'total' => (float)$order->get_item_meta($item_id, '_line_total', true),
+                'total' => (float)$item_data['line_total'],
                 'product_description' => null,
                 'line_tax' => [
                     [
