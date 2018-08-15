@@ -665,8 +665,11 @@ function import_order_infor_to_zoho($order_id) {
         'Subject' => 'vyt subject'
     ];
 
+    $subject = '';
+
     // get products
     foreach ($order->get_items() as $item_id => $item_data) {
+        $subject .= $item_data['name'];
 
         // search products
         $temp_products = $crm->search(\Zoho\CRM::MODULE_PRODUCTS, 'criteria','((Product_Code:equals:'."ID".$item_data['product_id'].') and (Product_Name:equals:'.$item_data['name'].'))');
@@ -712,6 +715,8 @@ function import_order_infor_to_zoho($order_id) {
             ];
         }
     }
+
+    $data['Subject'] = $subject;
 
     // insert a new contact to Zoho
     $crm->insertRecord(\Zoho\CRM::MODULE_SALE_ORDERS, [
