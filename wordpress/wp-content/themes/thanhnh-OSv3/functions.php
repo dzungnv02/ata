@@ -670,14 +670,16 @@ function import_order_infor_to_zoho($order_id) {
         'Shipping_State' => $shipping_add['state'],
         'Billing_Street' => $billing_add['address_1'] . ' ' . $billing_add['address_2'],
         'Billing_City' => $billing_add['city'],
-        'Billing_State' => $billing_add['state']
+        'Billing_State' => $billing_add['state'],
+        'Email' => $billing_add['email'],
+        'Phone' => $billing_add['phone'],
+        'Name' => $billing_add['last_name']
     ];
 
-    $subject = '';
+    $subject = 'W_' . date('Y-m-d H:i') . ' ' . $billing_add['last_name'] . ' ' . $billing_add['phone'];
 
     // get products
     foreach ($order->get_items() as $item_id => $item_data) {
-        $subject .= $item_data['name'] . ' ';
 
         // search products
         $temp_products = $crm->search(\Zoho\CRM::MODULE_PRODUCTS, 'criteria','((Product_Code:equals:'."ID".$item_data['product_id'].') and (Product_Name:equals:'.$item_data['name'].'))');
