@@ -654,6 +654,18 @@ function import_order_infor_to_zoho($order_id) {
     $shipping_add = $order->get_address('shipping');
     $billing_add = $order->get_address('billing');
 
+    // calculate shipping fee and cod fee
+    $shipping_fee = $order->get_total_shipping();
+    if (!$shipping_fee)
+        $shipping_fee = 0;
+    $fees = $order->get_fees();
+
+    $cod_fee = 0;
+
+    foreach ($fees as $temp_id => $data) {
+        $cod_fee += (int)$data['line_total'];
+    }
+
     // init data
     $data = [
         'Account_Number' => [
@@ -673,7 +685,10 @@ function import_order_infor_to_zoho($order_id) {
         'Billing_State' => $billing_add['state'],
         'Email' => $billing_add['email'],
         'Phone' => $billing_add['phone'],
-        'Name' => $billing_add['last_name']
+        'Name' => $billing_add['last_name'],
+        'Shipping_Fee' => $shipping_fee,
+        'COD_fee' => $cod_fee
+
     ];
 
     $subject = 'W_' . date('Y-m-d H:i') . ' ' . $billing_add['last_name'] . ' ' . $billing_add['phone'];
