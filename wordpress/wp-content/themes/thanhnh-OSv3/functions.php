@@ -671,7 +671,7 @@ function import_order_infor_to_zoho($order_id) {
 
     if (strtolower($payment_method_code) === 'cod') {
         $payment_method = 'COD';
-    } elseif (strtolower($payment_method_code) === 'cod') {
+    } elseif (strtolower($payment_method_code) === 'bacs') {
         $payment_method = 'Chuyển khoản';
     }
 
