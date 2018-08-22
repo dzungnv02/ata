@@ -662,8 +662,8 @@ function import_order_infor_to_zoho($order_id) {
 
     $cod_fee = 0;
 
-    foreach ($fees as $temp_id => $data) {
-        $cod_fee += (int)$data['line_total'];
+    foreach ($fees as $temp_id => $tmp_data) {
+        $cod_fee += (int)$tmp_data['line_total'];
     }
 
     // init data
@@ -687,7 +687,8 @@ function import_order_infor_to_zoho($order_id) {
         'Phone' => $billing_add['phone'],
         'Name' => $billing_add['last_name'],
         'Shipping_Fee' => $shipping_fee,
-        'COD_fee' => $cod_fee
+        'COD_fee' => $cod_fee,
+        'Ph_ng_Th_c_Thanh_To_n' => $order->payment_method
 
     ];
 
