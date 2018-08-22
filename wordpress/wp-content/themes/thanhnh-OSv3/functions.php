@@ -666,6 +666,15 @@ function import_order_infor_to_zoho($order_id) {
         $cod_fee += (int)$tmp_data['line_total'];
     }
 
+    $payment_method_code = $order->payment_method;
+    $payment_method = $payment_method_code;
+
+    if (strtolower($payment_method_code) === 'cod') {
+        $payment_method = 'COD';
+    } elseif (strtolower($payment_method_code) === 'cod') {
+        $payment_method = 'Chuyển khoản';
+    }
+
     // init data
     $data = [
         'Account_Number' => [
@@ -688,7 +697,7 @@ function import_order_infor_to_zoho($order_id) {
         'Name' => $billing_add['last_name'],
         'Shipping_Fee' => $shipping_fee,
         'COD_fee' => $cod_fee,
-        'Ph_ng_Th_c_Thanh_To_n' => $order->payment_method
+        'Ph_ng_Th_c_Thanh_To_n' => $payment_method
 
     ];
 
