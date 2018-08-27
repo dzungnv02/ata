@@ -754,7 +754,8 @@ function my_save_post( $post_id ) {
                     "Qu_n_Huy_n1" => $district,
                     "Kinh_nghi_m_b_n_h_ng_Online" => $worked_time,
                     "Dia_Chi" => $address,
-                    "Khac" => $other
+                    "Khac" => $other,
+                    "Lead_Source" => 'Form đăng ký đại lý',
                 ]
             ]
         ]);

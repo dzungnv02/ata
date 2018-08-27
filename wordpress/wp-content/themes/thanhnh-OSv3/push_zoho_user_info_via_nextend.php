@@ -18,7 +18,9 @@ if ($current_user && $current_user->ID) {
                 [
                     "Last_Name" => $current_user->user_lastname,
                     "First_Name" => $current_user->user_firstname,
-                    "Email" => $current_user->user_email
+                    "Email" => $current_user->user_email,
+                    "Lead_Source" => 'sanhangnhapkhau',
+                    "Group" => 'Khách lẻ'
                 ]
             ]
         ]);

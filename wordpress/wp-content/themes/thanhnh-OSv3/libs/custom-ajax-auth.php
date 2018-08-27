@@ -91,7 +91,9 @@ function ajax_register(){
                 [
                     "Last_Name" => $last_name,
                     "First_Name" => $first_name,
-                    "Email" => $info['user_email']
+                    "Email" => $info['user_email'],
+                    "Lead_Source" => 'sanhangnhapkhau',
+                    "Group" => 'Khách lẻ'
                 ]
             ]
         ]);

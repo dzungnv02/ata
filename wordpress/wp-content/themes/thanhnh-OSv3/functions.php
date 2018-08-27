@@ -761,3 +761,52 @@ function import_order_infor_to_zoho($order_id) {
     ]);
 
 }
+
+add_action( 'user_register', 'myplugin_registration_save', 10, 1 );
+
+function myplugin_registration_save( $user_id ) {
+    $new_user = get_user_by( 'id', $user_id );
+
+        // try to get first name / last name by username =))
+        $username = $new_user->display_name;
+        $name_arr = explode(" ", $username);
+
+        if (sizeof($name_arr) >= 2) {
+            $last_name = $name_arr[0];
+            unset($name_arr[0]);
+            $first_name = implode(" ", $name_arr);
+        } else {
+            $name_arr = explode("_", $username);
+            if (sizeof($name_arr) >= 2) {
+                $last_name = $name_arr[0];
+                unset($name_arr[0]);
+                $first_name = implode(" ", $name_arr);
+            } else {
+                $last_name = 'Unknown';
+                $first_name = $username;
+            }
+
+        }
+
+        $crm = new \Zoho\CRM;
+
+        // check if user existed
+        $zoho_contact = $crm->search(\Zoho\CRM::MODULE_CONTACTS, 'email', $new_user->user_email);
+
+        // insert new
+        if (!$zoho_contact) {
+
+            // insert a new contact to Zoho
+            $crm->insertRecord(\Zoho\CRM::MODULE_CONTACTS, [
+                'data' => [
+                    [
+                        "Last_Name" => $last_name,
+                        "First_Name" => $first_name,
+                        "Email" => $new_user->user_email,
+                        "Lead_Source" => 'sanhangnhapkhau',
+                        "Group" => 'Khách lẻ'
+                    ]
+                ]
+            ]);
+        }
+}
